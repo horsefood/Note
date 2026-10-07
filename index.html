@@ -5,23 +5,95 @@
   <title>나의 시크릿 노션 공간</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <!-- 노션 스타일 깔끔한 테마 CSS (정상 반영) -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  
+  <!-- Docsify 공식 다크 테마 기반 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/dark.css">
+  
+  <!-- 🍏 애플 맥북 스타일 커스텀 디자인 CSS -->
+  <style>
+    @import url('https://jsdelivr.net');
+
+    :root {
+      /* 애플 공식 개발자 다크모드 컬러 구성 */
+      --theme-color: #007aff; /* 맥북 시그니처 캘리포니아 블루 */
+      --background: #1e1e1e;   /* 맥북 다크모드 창 배경색 */
+      --sidebar-bg: #161616;  /* 맥북 Finder 왼쪽 메뉴바 색상 */
+      --text-color: #e3e3e3;  /* 눈이 편안한 흰색 글씨 */
+    }
+
+    /* 전체 폰트를 애플 시스템 서체 느낌의 Pretendard로 지정 */
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif !important;
+      background-color: var(--background) !important;
+      color: var(--text-color) !important;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* 📂 맥북 Finder 느낌의 사이드바 디자인 */
+    .sidebar {
+      background-color: var(--sidebar-bg) !important;
+      border-right: 1px solid #2c2c2e !important;
+      padding-top: 30px;
+    }
+
+    /* 사이드바 메뉴 글씨 및 호버 효과 */
+    .sidebar-nav li a {
+      color: #a1a1a6 !important;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    .sidebar-nav li a:hover {
+      color: #ffffff !important;
+      text-decoration: none !important;
+    }
+    .sidebar-nav li.active > a {
+      color: var(--theme-color) !important;
+      font-weight: 700 !important;
+      border-right: 2px solid var(--theme-color);
+    }
+
+    /* 📝 본문 문서 구역 디자인 (맥북 텍스트 편집기 감성) */
+    .content {
+      padding-top: 40px !important;
+    }
+    .markdown-section {
+      background-color: transparent !important;
+      max-width: 800px !important;
+    }
+    .markdown-section h1, .markdown-section h2, .markdown-section h3 {
+      color: #ffffff !important;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    /* 📋 본문 코드 상자 디자인 (애플 Xcode 다크 테마 스타일) */
+    .markdown-section pre, .markdown-section code {
+      background-color: #262626 !important;
+      border: 1px solid #333336 !important;
+      border-radius: 8px !important; /* 둥근 모서리 */
+      color: #f5f5f7 !important;
+      font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace !important;
+    }
+    
+    /* 복사 완료 안내 팝업 메시지 스타일링 */
+    .docsify-copy-code-button {
+      background: #333336 !important;
+      color: #a1a1a6 !important;
+      border-radius: 4px !important;
+    }
+  </style>
 </head>
 <body>
   <div id="app">로딩 중...</div>
   <script>
     window.$docsify = {
-      name: '🔒 나의 프라이빗 노트',
+      name: '💻 macOS Private Note',
       repo: '',
-      loadSidebar: true, // 사용자가 오픈한 글만 목차에 보여주는 기능
-      subMaxLevel: 2,
-      auto2top: true
+      loadSidebar: true,
+      subMaxLevel: 2
     }
   </script>
-  <!-- ⚠️ href를 src로 정상 수정했습니다 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <!-- 📋 원클릭 본문/코드 복사 플러그인 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
 </body>
 </html>
